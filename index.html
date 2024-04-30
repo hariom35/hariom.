@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" href="3.png">
+    <title>Hariom</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    <style>
+        @charset utf8;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body,html{
+    width: 100%;
+    height: 100%;
+}
+nav{
+    width: 100%;
+    height: 80px;
+    background: #a8ff78;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #78ffd6, #a8ff78);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #78ffd6, #a8ff78); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+label.logo{
+    font-size: 20px;
+    color: black;
+    line-height: 80px;
+}
+nav ul{
+    float: right;
+    list-style-type: none;
+}
+nav ul li{
+    display: inline-block;
+    line-height: 80px;
+}
+nav ul li a{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    text-transform: capitalize;
+    padding: 8px 20px;
+}
+nav ul li a.active,a:hover{
+    background-color: red;
+    color: white;
+}
+#checkbtn{
+    float: right;
+    line-height: 80px;
+    margin-right: 10px;
+    font-size: 30px;
+    color: black;
+    display: none;
+}
+#check{
+    display: none;
+}
+#check:checked ~ ul{
+    left: 0;
+}
+
+@media(max-width: 400px){
+    label.logo{
+        font-size:20px;
+        margin:0px 50px;
+    }
+}
+
+@media(max-width: 370px){
+    label.logo{
+        font-size:20px;
+        margin:0px 50px;
+    }
+}
+@media(max-width: 895px){
+    label.logo{
+        margin:0px 20px;
+    }
+    #checkbtn{
+        display: block;
+    }
+    nav ul{
+        width: 100%;
+        height: 13vh;
+        background: #a8ff78;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #78ffd6, #a8ff78);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #78ffd6, #a8ff78); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        position: fixed;
+        top:80px;
+        left: -100%;
+        transition: .5s;
+    }
+    nav ul li{
+        text-align: center;
+        line-height:5px;
+        margin:15px;
+    }
+}
+
+
+@media(max-width: 375px){
+    label.logo{
+        margin:0px 20px;
+    }
+    #checkbtn{
+        display: block;
+    }
+    nav ul{
+        width: 100%;
+        height: 20vh;
+        background: #a8ff78;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #78ffd6, #a8ff78);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #78ffd6, #a8ff78); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        position: fixed;
+        top:80px;
+        left: -100%;
+        transition: .5s;
+    }
+    nav ul li{
+        text-align: center;
+        line-height:5px;
+        margin:15px;
+    }
+}
+
+
+.full {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background-color: var(--whitesmoke);
+    height: 150vh;
+    width: 100vw;
+    display: grid;
+    place-items: center;
+    transition: opacity .25s, visibility 1s;
+}
+
+.full .wrapper .loaderForMobile {
+    display: none;
+}
+
+.full .wrapper .loaderForLaptop {
+    display: block;
+}
+
+.full .wrapper svg {
+    fill: transparent;
+    animation: fills .5s ease forwards 2.6s;
+}
+
+.full .wrapper svg text {
+    stroke: var(--main-colour);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15rem;
+    font-weight: 700;
+    stroke-width: 5;
+    /* font-family: 'Pacifico', cursive; */
+    /* font-family: 'Merriweather', cursive; */
+    /* font-family: 'Sofia Sans', cursive; */
+    font-family: 'Acme', sans-serif;
+}
+
+.full .wrapper svg text:nth-child(1) {
+    animation: stoke 2s ease forwards;
+}
+
+.full .wrapper svg text:nth-child(2) {
+    animation: stoke 2s ease forwards;
+}
+
+.full .wrapper svg text:nth-child(3) {
+    animation: stoke 3s ease forwards;
+}
+
+.full .wrapper svg text:nth-child(4) {
+    animation: stoke 3s ease forwards;
+}
+
+.full .wrapper svg text:nth-child(5) {
+    animation: stoke 3s ease forwards;
+}
+
+.full .wrapper svg text:nth-child(6) {
+    animation: stoke 3s ease forwards;
+}
+
+.full .wrapper svg text:nth-child(7) {
+    animation: stoke 3s ease forwards;
+}
+
+@keyframes stoke {
+    0% {
+        stroke-dasharray: 0 50%;
+        stroke-dashoffset: 10%;
+    }
+
+    100% {
+        stroke-dasharray: 50% 0;
+        stroke-dashoffset: -10%;
+    }
+}
+
+@keyframes fills {
+    form {
+        fill: transparent;
+    }
+
+    to {
+        fill: var(--main-colour);
+    }
+}
+
+@media screen {
+    /* For mobile devices */
+}
+
+.fade {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dark_mode_color {
+    --white: black;
+    --black: white;
+    --whitesmoke: #2d2e2d;
+}
+
+@media (prefers-color-scheme : light) {
+    :root {
+        --main-colour: #4bbf87;
+        --black: black;
+        --white: white;
+        --whitesmoke: navy;
+    }
+}
+
+@media (prefers-color-scheme : dark) {
+    :root {
+        --main-colour: #4bbf87;
+        --white: black;
+        --black: white;
+        --whitesmoke: #2d2e2d;
+    }
+}
+
+.maincolor {
+    color: var(--main-colour);
+}
+
+.wrapper {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.p-n{
+    width: 100%;
+    height: 678px;
+    background: #FC466B;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #3F5EFB, #FC466B);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #3F5EFB, #FC466B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.p-i-c{
+    position: relative;
+    margin: 0 auto;
+    width: 270px;
+    height: 478px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: background: #EF3B36;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FFFFFF, #EF3B36);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FFFFFF, #EF3B36); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.p-i-c::before{
+    content:'';
+    position: absolute;
+    width: 180px;
+    height: 220%;
+    background-color: background: #a8ff78;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #78ffd6, #a8ff78);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #78ffd6, #a8ff78); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */;
+    box-shadow: 20px rgb(8, 8, 8);
+    animation: animatepl 4s linear infinite;
+}
+
+
+.p-i-c::after{
+    content:'';
+    position: absolute;
+    inset: 18px;
+    background-image: url(45.jpg);
+    border-radius: 16px;
+}
+
+
+@keyframes animatepl{
+    0%{
+        transform: rotate(0deg);
+    }
+
+    100%{
+        transform: rotate(360deg);
+    }
+
+}
+
+.p-name{
+    color: #4bbf87;
+    margin-top: 20px;
+    font-size: 35px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.p-name:hover{
+    background: #a8ff78;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #78ffd6, #a8ff78);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #78ffd6, #a8ff78); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: black;
+}
+
+.outter{
+    height: 30px;
+    margin: 27px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inner{
+    position: absolute;
+    font-size: 30px;
+    animation: wid 8s linear infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: 5px solid red;
+    border-right: 5px solid red;
+}
+
+.inner::before{
+    font-family: cursive;
+    content: "";
+    position: relative;
+    animation:bdrwdh 8s linear infinite;
+}
+
+@keyframes bdrwdh {
+1%{
+    content: "| WELCOME |";
+}
+
+18%{
+    content: "Programmer";
+}
+19%{
+    content: "Web Developer";
+}
+39%{
+    content: "Computer Science";
+}
+62%{
+    content: "Student";
+    letter-spacing: 1px;
+}
+}
+
+.btn-h{
+    width: 12%;
+    height: 40px;
+    margin: 20px auto;
+    padding: 8px;
+    background: #a8ff78;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #78ffd6, #a8ff78);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #78ffd6, #a8ff78); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    font-size: 20px;
+    font-family: 'Ubuntu',sans-serif;
+    color: black;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.p-contact{
+    font-family: sans-serif;
+    text-decoration: none;
+    color: black;
+    font-weight: 550;n
+    font-size: 40px;
+}
+
+#p-section{
+    width: 100%;
+    padding-top: 25px;
+    height: 860px;
+    background: #FC466B;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #3F5EFB, #FC466B);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #3F5EFB, #FC466B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.p-h-me{
+    text-align: center;
+    color: #4bbf87;
+    font-size: 40px;
+    margin-top: 50px;
+    font-weight: bold;
+}
+
+.p-h-about{
+    text-align: center;
+    color: black;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.pic-h-about{
+    position: relative;
+    margin: 0 auto;
+    width: 270px;
+    height: 384px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: background: #EF3B36;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FFFFFF, #EF3B36);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FFFFFF, #EF3B36); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.pic-h-about::before{
+    content:'';
+    position: absolute;
+    width: 180px;
+    height: 220%;
+    background-color: background: #a8ff78;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #78ffd6, #a8ff78);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #78ffd6, #a8ff78); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */;
+    box-shadow: 20px rgb(8, 8, 8);
+    animation: animatepl 4s linear infinite;
+}
+.pic-h-about::after{
+    content:'';
+    position: absolute;
+    inset: 18px;
+    background-image: url(10125.jpg);
+    border-radius: 16px;
+}
+
+
+@keyframes animatepl{
+    0%{
+        transform: rotate(0deg);
+    }
+
+    100%{
+        transform: rotate(360deg);
+    }
+
+}
+
+.p-h-lock{
+    width: 100%;
+    height: 1290px;
+    padding-top: 15px;
+    background: #FC466B;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #3F5EFB, #FC466B);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #3F5EFB, #FC466B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.p-h-0{
+    font-family: sans-serif;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.p-h-foot{
+    margin-top: 100px;
+    margin-left: 40%;
+    margin-right: 50%;
+    justify-content: space-around;
+    width: 25%;
+    padding: 15px;
+    background-color: white;
+    float: left;
+    height: 460px;
+    border: 1px solid;
+    overflow: hidden;
+}
+
+@media(max-width:1024px){
+    .p-h-foot{
+        width: 30%;
+        height: 450px;
+    }
+}
+
+@media(max-width:868px){
+    .p-h-foot{
+        width: 35%;
+        height: 450px;
+    }
+}
+
+@media(max-width:746px){
+    .p-h-foot{
+        width: 40%;
+        height: 450px;
+    }
+}
+
+@media(max-width:654px){
+    .p-h-foot{
+        width: 45%;
+        height: 450px;
+    }
+}
+
+@media(max-width:586px){
+    .p-h-foot{
+        width: 50%;
+        height: 450px;
+        margin-left: 140px;
+    }
+}
+
+@media(max-width:522px){
+    .p-h-foot{
+        width: 55%;
+        height: 450px;
+    }
+}
+
+@media(max-width:478px){
+    .p-h-foot{
+        width: 60%;
+        height: 450px;
+        margin-left: 80px;
+    }
+}
+
+@media(max-width:436px){
+    .p-h-foot{
+        width: 65%;
+        height: 450px;
+    }
+}
+
+@media(max-width:414px){
+    .p-h-foot{
+        width: 70%;
+        height: 450px;
+    }
+}
+
+@media(max-width:410px){
+    .p-h-foot{
+        width: 75%;
+        height: 450px;
+        margin-left: 58px;
+    }
+}
+
+@media(max-width:348px){
+    .p-h-foot{
+        width: 80%;
+        height: 450px;
+        margin-left: 40px;
+    }
+}
+
+@media(max-width:336px){
+    .p-h-foot{
+        width: 85%;
+        height: 450px;
+        margin-left: 23px;
+    }
+}
+
+
+
+.p-h-footere{
+   width: 300px;
+   height: 450px;
+   background-color: white;
+   padding: 15px;
+   justify-content: space-around;
+   margin: 0 auto;
+   margin-top: 100px;
+   border: 1px solid;
+}
+
+#p-h-mex{
+    text-align: center;
+    color: #4bbf87;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.p-h-fo{
+    width: 100%;
+    height: 250px;
+    background: #a8ff78;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #78ffd6, #a8ff78);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #78ffd6, #a8ff78); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.p-h-l-ha{
+    width: 97%;
+    height: 250px;
+    margin: 0 auto;
+    padding-top: 35px;
+    padding-bottom: 35px;
+}
+
+.p-h-l-h-d{
+    width: 100%;
+    height: 60px;
+    border: 2px dashed;
+}
+
+.logoing{
+    font-size: 32px;
+    color: black;
+    margin-left: 32px;
+    line-height: 52px;
+}
+
+.p-h-foll{
+    width: 100%;
+    margin-top: 42px;
+    height: 70px;
+    padding-top: 14px;
+    border: 2px dashed;
+}
+
+.p-foll{
+    font-size: 32px;
+    float: left;
+    color: black;
+    margin-left: 4px;
+}
+
+@media(320px){
+    .p-foll{
+        font-size: 15px;
+        float: left;
+        color: black;
+        margin-left: 4px;
+    }
+    .p-h-l-h-d{
+        width: 100%;
+    }
+}
+    </style>
+    <meta name="viewport" content="width=device-width,intial-scale=1.0">
+</head>
+
+<body>
+            <div class="full">
+        <div class="wrapper">
+            <svg class="loaderForLaptop" viewBox="0 0 1350 620"> 3100
+                <text x="20%" y="75%" text-anchor="middle">H</text>
+                <text x="33%" y="75%" text-anchor="middle">A</text>
+                <text x="46%" y="75%" text-anchor="middle">R</text>
+                <text x="55%" y="75%" text-anchor="middle">I</text>
+                <text x="65%" y="75%" text-anchor="middle">O</text>
+                <text x="79%" y="75%" text-anchor="middle">M</text> 
+            </svg>
+            <svg class="loaderForMobile" viewBox="0 0 1600 620">
+                <text x="10%" y="50%" text-anchor="middle">H</text>
+                <text x="26%" y="50%" text-anchor="middle">A</text>
+                <text x="42%" y="50%" text-anchor="middle">R</text>
+                <text x="54%" y="50%" text-anchor="middle">I</text>
+                <text x="66%" y="50%" text-anchor="middle">O</text>
+                <text x="83%" y="50%" text-anchor="middle">M</text>
+                
+            </svg>
+        </div>
+    </div>
+    <nav>
+        <input type="checkbox" id="check" name="" value="">
+        <label for="check" id="checkbtn"><i class="fa fa-bars"></i></label>
+        <img style="width: 70px;margin: 15px;margin-left: 10px;
+    height: 57px; float: left;" src="4.png">
+        <label class="logo">Hariom</label>
+        <ul>
+            <li><a href="https://www.instagram.com/hariom_coding_classses/">instagram</a></li>
+            <li><a href="https://github.com/hariom35">github</a></li>
+            <li><a href="https://hariom35.github.io/hariom.com/">project</a></li>
+            <li><a href="#p-h-mex">contact</a></li>
+            <li><a href="#p-section">About</a></li>
+        </ul>
+        
+    </nav>
+    <hr style="border-width:1px; border-color: grey;">
+<div style="width:100%;height: 110px;background-color: background: #FC466B;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #3F5EFB, #FC466B);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #3F5EFB, #FC466B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+;"></div>
+
+    <nav class="p-n">
+        <div class="p-i-c"></div>
+        <br><p class="p-name">Hariom</p><br>
+        <div class="outter">
+        <div class="inner">
+            
+        </div>
+        </div>
+    </nav>
+    <hr style="border-width:3 px; border-color: grey;">
+    <section id="p-section">
+        <p class="p-h-about">About
+        <span class="p-h-me">Me</span></p><br><br>
+        <div class="pic-h-about"></div><br><br>
+        <br><p class="p-h-about">Name : <span class="p-h-me">Hariom</span></p><br>
+        <br><p class="p-h-about">Age  : <span class="p-h-me">14 Years</span></p><br>
+        <br><p class="p-h-about">Gender : <span class="p-h-me">Male</span></p><br>
+        <br><p class="p-h-about">Class : <span class="p-h-me">10 th </span></p>
+
+    </section>
+    <hr style="border-width:1px; border-color: grey;">
+
+    <header class="p-h-lock">
+        
+                        <p class="p-h-me">Contact us</p>            <br><p class="p-h-0">You Can contact me to fill form and This link</p>
+
+                        <div class="p-h-foot">
+                        <div class="p-h-foote">
+                            <h3 style="font-size: 30px;text-align: center;color:#4bbf87;font-family: sans-serif;">Address</h3><br>
+                            <p style="font-size: 20px;text-align:center;font-family: sans-serif;">Mohan Nagar Palwal,Haryana</p>
+                            <br><h3 style="font-size: 30px;text-align: center;color:#4bbf87;font-family: sans-serif;">Phone</h3><br>
+                            <p style="font-size: 20px;text-align:center;text-align:center;font-family: sans-serif;">+9813970731  +702738****</p>
+
+                            <br><h3 style="font-size: 30px;text-align: center;color:#4bbf87;font-family: sans-serif;">Email me</h3><br>
+                            <p style="font-size: 20px;text-align:center;font-weight:bold;font-family: sans-serif;"><a style="text-decoration: none; color:black;" href="mailto:basikjankari@gmail.com?subject = Feedback&body = Mail from my portfolio web.">basikjankari@gmail.com</a></p><br>
+                            <h3 style="font-size: 30px;text-align: center;color:#4bbf87;font-family: sans-serif;">Links :</h3><br>
+                            <a style="margin-left:15px;" href="https://www.instagram.com/hariom_coding_classses/"><img src="linkdin.webp"></a>
+                            <a href="https://www.youtube.com/@hariomcodingclasses"><img src="twitter.png"></a>
+                            <a href="https://github.com/hariom35"><img src="git.png"></a>
+                            <a href="https://www.facebook.com/profile.php?id=61556079494171"><img src="2.png"></a>
+                        </div>
+                    </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                    <div class="p-h-footere">                        <p id="p-h-mex">Contact us</p><br> <br>
+                    <script src="https://sheetdb.io/s/f/g5djj4j1x6752.js"></script>
+                    </div>
+    </header>
+
+    <footer class="p-h-fo">
+        <div class="p-h-l-ha">
+            <div class="p-h-l-h-d">
+                <img style="width: 70px;margin-left: 20px;
+                height: 57px; float: left;" src="4.png">
+                <label class="logoing">Hariom</label>
+            </div>
+
+            <div class="p-h-foll">
+                <p class="p-foll">Follow us : </p><a style="margin-left:15px;float: left;" href="https://www.instagram.com/hariom_coding_classses/"><img src="linkdin.webp"></a>
+                <a style="margin-left:15px;float: left;" href="https://www.youtube.com/@hariomcodingclasses"><img src="twitter.png"></a>
+                <a style="margin-left:15px;float: left;" href="https://www.facebook.com/profile.php?id=61556079494171"><img src="2.png"></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js.js"></script>
+    <script src="index.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
